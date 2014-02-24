@@ -1,0 +1,29 @@
+[
+	{
+		"name" : "O'Flaherty's Irish Pub",
+		"city" : "San Jose",
+		"address" : "25 North San Pedro Street",
+		"favorites" : [
+			{ "food" : "irish nachos" },
+			{ "drink" : "Fidy Cent" }
+		]
+	},
+	{
+		"name" : "Boiling Crab",
+		"city" : "San Jose",
+		"address" : "71 Curtner Ave",
+		"favorites" : [
+			{ "food" : "shrimp" },
+			{ "drink" : "none" }
+		]
+	},
+	{
+		"name" : "Wine Affairs",
+		"city" : "San Jose",
+		"address" : "1435 The Alameda",
+		"favorites" : [
+			{ "food" : "cheese" },
+			{ "drink" : "wine" }
+		]
+	}
+]

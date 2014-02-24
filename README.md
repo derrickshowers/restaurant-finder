@@ -1,0 +1,3 @@
+# New Project Boilerplate
+
+This repo is the start of a boilerplate for what I use with new projects. More to come...

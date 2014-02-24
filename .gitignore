@@ -1,0 +1,8 @@
+# SASS stuff
+.SASS-cache/
+
+# Node stuff
+node_modules/
+
+# OSX stuff
+.DS_Store

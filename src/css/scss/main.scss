@@ -1,0 +1,15 @@
+// Base
+@import "partials/base";
+
+// Vendor
+@import "vendor/bootstrap";
+@import "vendor/bootstrap-theme";
+
+// Main Styles
+@import "partials/other";
+
+// Responsive
+@import "partials/responsive";
+
+// Special shoutout for those still using old browsers
+@import "partials/ie";
