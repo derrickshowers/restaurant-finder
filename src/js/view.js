@@ -3,10 +3,19 @@ var restaurantApp = restaurantApp || {};
 restaurantApp.Views = restaurantApp.Views || {};
 restaurantApp.Views.RestaurantView = Backbone.View.extend({
 	
-	tagName: 'li',
+	tagName: 'a',
+
+	className: 'list-group-item',
+
+	attributes: function() {
+		return {
+			href: '#' + this.model.get('id'),
+			alt: this.model.get('name')
+		}
+	},
 
 	render: function() {
-		this.$el.html('<strong>Name:</strong> ' + this.model.get('name'));
+		this.$el.html(this.model.get('name'));
 		return this;
 	}
 
@@ -14,7 +23,9 @@ restaurantApp.Views.RestaurantView = Backbone.View.extend({
 
 restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 	
-	tagName: 'ul',
+	tagName: 'div',
+
+	className: 'list-group',
 
 	initialize: function() {
 		this.collection.on('reset', this.showAll, this);
@@ -31,6 +42,21 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 	showOne: function(restaurant) {
 		var restaurantView = new restaurantApp.Views.RestaurantView({ model: restaurant });
 		this.$el.append(restaurantView.render().el);
+	}
+
+});
+
+restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
+	
+	tagName: 'ul',
+
+	initialize: function() {
+
+	},
+
+	render: function() {
+		this.$el.html(this.model.get('name'));
+		$('#restaurantDetails').html(this.el);
 	}
 
 });
