@@ -1,0 +1,41 @@
+/* header */
+header {
+	background: #333;
+	background: -webedit-linear-gradient(#4D4D4D, #333);
+	background: linear-gradient(#4D4D4D, #333);
+	box-shadow: 1px 2px 6px #333;
+	margin-bottom: 25px;
+	color: #FAFAFA;
+
+	.container {
+		padding: 25px;
+	}
+
+	h1 {
+		margin-top: 0;
+	}
+}
+
+/* main area */
+#main {
+	margin-bottom: 500px;
+}
+
+/* footer */
+footer {
+	background: #000;
+	background: -webedit-linear-gradient(#333, #000 25%);
+	background: linear-gradient(#333, #000 25%);
+
+	.container {
+		padding: 25px;
+		a {
+			color: #FAFAFA;
+		}
+
+		p {
+			display: inline;
+			color: #FAFAFA;
+		}
+	}
+}

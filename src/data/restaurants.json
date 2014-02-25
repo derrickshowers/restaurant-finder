@@ -1,5 +1,6 @@
 [
 	{
+		"id" : 1,
 		"name" : "O'Flaherty's Irish Pub",
 		"city" : "San Jose",
 		"address" : "25 North San Pedro Street",
@@ -9,6 +10,7 @@
 		]
 	},
 	{
+		"id" : 2,
 		"name" : "Boiling Crab",
 		"city" : "San Jose",
 		"address" : "71 Curtner Ave",
@@ -18,6 +20,7 @@
 		]
 	},
 	{
+		"id" : 3,
 		"name" : "Wine Affairs",
 		"city" : "San Jose",
 		"address" : "1435 The Alameda",
