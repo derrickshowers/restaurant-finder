@@ -6,3 +6,7 @@ node_modules/
 
 # OSX stuff
 .DS_Store
+
+# Sublime Text stuff
+backbone.sublime-project
+backbone.sublime-workspace
