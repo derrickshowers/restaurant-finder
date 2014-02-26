@@ -6031,6 +6031,15 @@ button.close {
 body {
   font-family: 'Muli', sans-serif; }
 
+/* helpers */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
 /* browser outdated message */
 .browsehappy {
   height: 100%;
@@ -6062,8 +6071,8 @@ header {
 /* footer */
 footer {
   background: #000;
-  background: -webedit-linear-gradient(#333333, black 25%);
-  background: linear-gradient(#333333, black 25%); }
+  background: -webedit-linear-gradient(#333333, black 75%);
+  background: linear-gradient(#333333, black 75%); }
   footer .container {
     padding: 25px; }
     footer .container a {
@@ -6071,3 +6080,25 @@ footer {
     footer .container p {
       display: inline;
       color: #FAFAFA; }
+
+#restaurantDetails {
+  position: relative;
+  min-height: 300px;
+  border-radius: 4px;
+  border: 1px solid #DDD;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075); }
+  #restaurantDetails h3 {
+    width: 40%;
+    float: left;
+    margin-top: 25px; }
+  #restaurantDetails ul.address {
+    list-style: none;
+    float: left;
+    margin: 20px 5%;
+    padding: 0; }
+  #restaurantDetails img {
+    top: 20px;
+    right: 20px;
+    position: absolute;
+    border-radius: 4px;
+    box-shadow: 3px 3px 4px 1px #666666; }

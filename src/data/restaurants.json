@@ -4,9 +4,16 @@
 		"name" : "O'Flaherty's Irish Pub",
 		"city" : "San Jose",
 		"address" : "25 North San Pedro Street",
+		"main_image" : "oflahertys.jpg",
 		"favorites" : [
-			{ "food" : "irish nachos" },
-			{ "drink" : "Fidy Cent" }
+			{ 
+				"type": "Entrée", 
+				"name": "irish nachos" 
+			},
+			{ 
+				"type": "Drink",
+			 	"name": "Fidy Cent"
+			}
 		]
 	},
 	{
@@ -14,9 +21,16 @@
 		"name" : "Boiling Crab",
 		"city" : "San Jose",
 		"address" : "71 Curtner Ave",
+		"main_image" : "boiling-crab.jpg",
 		"favorites" : [
-			{ "food" : "shrimp" },
-			{ "drink" : "none" }
+			{
+				"type": "Entrée", 
+				"name": "shrimp" 
+			},
+			{ 
+				"type": "Drink",
+			 	"name": "coke"
+			}
 		]
 	},
 	{
@@ -24,9 +38,16 @@
 		"name" : "Wine Affairs",
 		"city" : "San Jose",
 		"address" : "1435 The Alameda",
+		"main_image" : "wine-affairs.jpg",
 		"favorites" : [
-			{ "food" : "cheese" },
-			{ "drink" : "wine" }
+			{ 
+				"type": "Entrée", 
+				"name": "cheese" 
+			},
+			{ 
+				"type": "Drink",
+			 	"name": "wine"
+			}
 		]
 	}
 ]

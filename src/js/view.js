@@ -47,8 +47,8 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 });
 
 restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
-	
-	tagName: 'ul',
+
+	template: _.template(restaurantApp.Tempaltes.RestaurantDetailTemplate),
 
 	initialize: function() {
 
@@ -60,7 +60,8 @@ restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
 
 	swapDetails: function(id) {
 		var model = restaurantApp.app.restaurantList.get(id);
-		this.$el.html(model.get('name'));
+		var data = model.toJSON();
+		this.$el.html(this.template(data));
 	}
 
 });

@@ -3,6 +3,16 @@ body {
 	font-family: 'Muli', sans-serif;
 }
 
+/* helpers */
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+
 /* browser outdated message */
 .browsehappy {
 	height: 100%; width: 100%;
