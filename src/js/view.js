@@ -55,8 +55,12 @@ restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
 	},
 
 	render: function() {
-		this.$el.html(this.model.get('name'));
-		$('#restaurantDetails').html(this.el);
+
+	},
+
+	swapDetails: function(id) {
+		var model = restaurantApp.app.restaurantList.get(id);
+		this.$el.html(model.get('name'));
 	}
 
 });
