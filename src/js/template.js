@@ -1,7 +1,10 @@
 var restaurantApp = restaurantApp || {};
 
-restaurantApp.Tempaltes = restaurantApp.Views || {};
-restaurantApp.Tempaltes.RestaurantDetailTemplate = '\
+restaurantApp.Templates = restaurantApp.Views || {};
+restaurantApp.Templates.RestaurantListTemplate = '\
+	<a class="list-group-item" href="#<%= id %>" alt="<%= name %>"><%= name %></a>\
+';
+restaurantApp.Templates.RestaurantDetailTemplate = '\
 	<div class="clearfix">\
 		<h3><%= name %></h3>\
 		<ul class="address">\

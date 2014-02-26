@@ -1,54 +1,35 @@
 var restaurantApp = restaurantApp || {};
 
 restaurantApp.Views = restaurantApp.Views || {};
-restaurantApp.Views.RestaurantView = Backbone.View.extend({
-	
-	tagName: 'a',
-
-	className: 'list-group-item',
-
-	attributes: function() {
-		return {
-			href: '#' + this.model.get('id'),
-			alt: this.model.get('name')
-		}
-	},
-
-	render: function() {
-		this.$el.html(this.model.get('name'));
-		return this;
-	}
-
-});
-
 restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 	
 	tagName: 'div',
 
 	className: 'list-group',
 
+	template: _.template(restaurantApp.Templates.RestaurantListTemplate),
+
 	initialize: function() {
-		this.collection.on('reset', this.showAll, this);
+		this.collection.on('reset', this.show, this);
 	},
 
 	render: function() {
 
 	},
 
-	showAll: function() {
-		this.collection.forEach(this.showOne, this);
-	},
-
-	showOne: function(restaurant) {
-		var restaurantView = new restaurantApp.Views.RestaurantView({ model: restaurant });
-		this.$el.append(restaurantView.render().el);
+	show: function() {
+		this.collection.forEach(function(restaurant) {
+			var model = restaurantApp.app.restaurantList.get(restaurant.id);
+			var data = model.toJSON();
+			this.$el.append(this.template(data));
+		}, this);
 	}
 
 });
 
 restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
 
-	template: _.template(restaurantApp.Tempaltes.RestaurantDetailTemplate),
+	template: _.template(restaurantApp.Templates.RestaurantDetailTemplate),
 
 	initialize: function() {
 
