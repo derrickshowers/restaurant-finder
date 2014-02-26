@@ -1,6 +1,6 @@
 restaurantApp = restaurantApp || {};
 
-restaurantApp.router = new (Backbone.Router.extend({
+restaurantApp.app = new (Backbone.Router.extend({
 
 	routes: {
 		'' : 'welcome',
@@ -10,7 +10,9 @@ restaurantApp.router = new (Backbone.Router.extend({
 	initialize: function() {
 		this.restaurantList = new restaurantApp.Collections.RestaurantList();
 		this.restaurantListView = new restaurantApp.Views.RestaurantListView({ collection: this.restaurantList });
+		this.restaurantDetailView = new restaurantApp.Views.RestaurantDetailView();
 		$('#restaurantList').append(this.restaurantListView.el);
+		$('#restaurantDetails').html(this.restaurantDetailView.el);
 	},
 
 	start: function() {
@@ -22,9 +24,16 @@ restaurantApp.router = new (Backbone.Router.extend({
 	},
 
 	showDetail: function(id) {
-		var restaurantDetailView = new restaurantApp.Views.RestaurantDetailView({});
-		restaurantDetailView.model = this.restaurantList.get({ id: id })
-		restaurantDetailView.render();
+		var self = this;
+
+		if (!this.restaurantList.length > 0) {
+			this.restaurantList.fetch({ reset: true });
+			this.restaurantList.on('reset', function() {
+				self.restaurantDetailView.swapDetails(id);
+			});
+		} else {
+			this.restaurantDetailView.swapDetails(id);
+		}
 	}
 
 }));
