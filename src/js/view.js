@@ -10,19 +10,33 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 	template: _.template(restaurantApp.Templates.RestaurantListTemplate),
 
 	initialize: function() {
-		this.collection.on('reset', this.show, this);
+		this.collection.on('reset', this.render, this);
 	},
 
-	render: function(data) {
-		this.$el.append(this.template(data));
-	},
-
-	show: function() {
+	render: function() {
+		var $template = $('<div/>');
 		this.collection.forEach(function(restaurant) {
-			var model = restaurantApp.app.restaurantList.get(restaurant.id);
-			var data = model.toJSON();
-			this.render(data);
+			$item = $(this.template(restaurant.toJSON()));
+			if (restaurant.selected) {
+				$item.addClass('active');
+			} else {
+				$item.removeClass('active');
+			}
+			$template.append($item);
 		}, this);
+		this.$el.html($template.children());
+	},
+
+	selectedState: function(id) {
+		var id = parseInt(id);
+		this.collection.forEach(function(restaurant) {
+			if (restaurant.id === id) {
+				restaurant.selected = true;
+			} else {
+				restaurant.selected = false;
+			}
+		}, this);
+		this.render();
 	}
 
 });
@@ -42,6 +56,7 @@ restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
 	swapDetails: function(id) {
 		var model = restaurantApp.app.restaurantList.get(id);
 		var data = model.toJSON();
+		restaurantApp.app.restaurantListView.selectedState(id);
 		this.render(data);
 	}
 
