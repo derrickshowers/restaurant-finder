@@ -6081,6 +6081,9 @@ footer {
       display: inline;
       color: #FAFAFA; }
 
+#restaurantList select.form-control {
+  margin-bottom: 30px; }
+
 #restaurantDetails {
   position: relative;
   min-height: 300px;
