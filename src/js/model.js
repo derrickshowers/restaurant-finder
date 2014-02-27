@@ -6,5 +6,6 @@ restaurantApp.Models.Restaurant = Backbone.Model.extend({
 		name		: 'Unknown Name',
 		city		: 'Unknown City',
 		address		: 'Unknown Address'
-	}
+	},
+	selected: false
 });
