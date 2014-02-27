@@ -24,4 +24,24 @@
 		border-radius: 4px;
 		box-shadow: 3px 3px 4px 1px #666
 	}
+
+	#getStarted {
+		font-size: 1.5em;
+		margin-top: 70px;
+	}
+	#getStarted span {
+		-webkit-animation: 2s 'moveIt' ease-in-out infinite alternate;
+	}
+
+}
+
+@-webkit-keyframes 'moveIt' {
+	from {
+		margin-left: 4px;
+		margin-right: -4px;
+	}
+	to {
+		margin-left: -8px;
+		margin-right: 8px;
+	}
 }

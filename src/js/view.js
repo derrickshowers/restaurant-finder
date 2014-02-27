@@ -97,7 +97,7 @@ restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
 	template: _.template(restaurantApp.Templates.RestaurantDetailTemplate),
 
 	initialize: function() {
-
+		this.$el.html('<p id="getStarted"><span class="glyphicon glyphicon-arrow-left"></span>  Go ahead and choose a restaurant</p>')
 	},
 
 	render: function(id) {
