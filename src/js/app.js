@@ -29,10 +29,10 @@ restaurantApp.app = new (Backbone.Router.extend({
 		if (!this.restaurantList.length > 0) {
 			this.restaurantList.fetch({ reset: true });
 			this.restaurantList.on('reset', function() {
-				self.restaurantDetailView.swapDetails(id);
+				self.restaurantDetailView.render(id);
 			});
 		} else {
-			this.restaurantDetailView.swapDetails(id);
+			this.restaurantDetailView.render(id);
 		}
 	}
 
