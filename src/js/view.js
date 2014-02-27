@@ -13,15 +13,15 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 		this.collection.on('reset', this.show, this);
 	},
 
-	render: function() {
-
+	render: function(data) {
+		this.$el.append(this.template(data));
 	},
 
 	show: function() {
 		this.collection.forEach(function(restaurant) {
 			var model = restaurantApp.app.restaurantList.get(restaurant.id);
 			var data = model.toJSON();
-			this.$el.append(this.template(data));
+			this.render(data);
 		}, this);
 	}
 
@@ -35,14 +35,14 @@ restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
 
 	},
 
-	render: function() {
-
+	render: function(data) {
+		this.$el.html(this.template(data));
 	},
 
 	swapDetails: function(id) {
 		var model = restaurantApp.app.restaurantList.get(id);
 		var data = model.toJSON();
-		this.$el.html(this.template(data));
+		this.render(data);
 	}
 
 });
