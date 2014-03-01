@@ -14,6 +14,57 @@
 				"type": "Drink",
 			 	"name": "Fidy Cent"
 			}
+		],
+		"specials" : [
+			{
+				"day" : "sunday",
+				"drinks" : [
+					"bloody mary",
+					"mimosa"
+				]
+			},
+			{
+				"day" : "monday",
+				"drinks" : [
+					"bloody mary",
+					"mimosa"
+				]
+			},
+			{
+				"day" : "tuesday",
+				"drinks" : [
+					"bloody mary",
+					"mimosa"
+				]
+			},
+			{
+				"day" : "wednesday",
+				"drinks" : [
+					"bloody mary",
+					"mimosa"
+				]
+			},
+			{
+				"day" : "thursday",
+				"drinks" : [
+					"bloody mary",
+					"mimosa"
+				]
+			},
+			{
+				"day" : "friday",
+				"drinks" : [
+					"bloody mary",
+					"mimosa"
+				]
+			},
+			{
+				"day" : "saturdaydd",
+				"drinks" : [
+					"bloody mary",
+					"mimosa"
+				]
+			}
 		]
 	},
 	{
