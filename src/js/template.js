@@ -17,4 +17,15 @@ restaurantApp.Templates.RestaurantDetailTemplate = '\
 	<ul>\
 		<% _.each(favorites, function(favorite) { %> <li><%= favorite.type %>: <%= favorite.name %></li> <% }); %>\
 	</ul>\
+	<% if (typeof specials !== "undefined") { %>\
+		<h4>Specials:</h4>\
+		<ul>\
+			<% _.each(specials, function(special) { %> <li><%= special.day %>:\
+				<ul><% _.each(special.drinks, function(drink) { %>\
+					<li><%= drink %></li>\
+				<% }); %>\
+				</ul>\
+			</li> <% }); %>\
+		</ul>\
+	<% } %>\
 ';
