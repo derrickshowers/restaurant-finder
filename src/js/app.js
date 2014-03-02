@@ -11,7 +11,7 @@ restaurantApp.app = new (Backbone.Router.extend({
 		this.restaurantList = new restaurantApp.Collections.RestaurantList();
 		this.restaurantListView = new restaurantApp.Views.RestaurantListView({ collection: this.restaurantList });
 		this.restaurantDetailView = new restaurantApp.Views.RestaurantDetailView();
-		this.restaurantAddView = new restaurantApp.Views.RestaurantAddView();
+		this.restaurantAddEditView = new restaurantApp.Views.RestaurantAddEditView();
 		$('#restaurantList').html(this.restaurantListView.el);
 	},
 

@@ -12,10 +12,11 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 	events: {
 		'change select'		: 'render',
 		'click #addNew'		: 'addNew',
+		'click #edit'		: 'edit'
 	},
 
 	initialize: function() {
-		this.collection.on('reset add remove', this.render, this);
+		this.collection.on('reset change add remove', this.render, this);
 	},
 
 	render: function() {
@@ -31,6 +32,7 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 			$item = $(this.template(restaurant.toJSON()));
 			if (restaurant.selected) {
 				$item.addClass('active');
+				this.selectedRestaurant = restaurant;
 			} else {
 				$item.removeClass('active');
 			}
@@ -96,8 +98,17 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 		return $select;
 	},
 
+	// called when 'New Restaurant' button is clicked. Sets up a new RestaurantAddEditView
+	// view, and then renders it.
 	addNew: function() {
-		var newView = new restaurantApp.Views.RestaurantAddView;
+		var newView = new restaurantApp.Views.RestaurantAddEditView({ collection: restaurantApp.app.restaurantList });
+		newView.render();
+	},
+
+	// called when 'Edit This Restaurant' button is clicked. Sets up a new RestaurantAddEditView
+	// view, associating it with the current restaurant model, and then render it.
+	edit: function() {
+		var newView = new restaurantApp.Views.RestaurantAddEditView({ model: this.selectedRestaurant });
 		newView.render();
 	}
 
@@ -120,11 +131,14 @@ restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
 
 });
 
-restaurantApp.Views.RestaurantAddView = Backbone.View.extend({
+restaurantApp.Views.RestaurantAddEditView = Backbone.View.extend({
 
 	tagName: 'form',
 
-	template: _.template(restaurantApp.Templates.RestaurantAddNewTemplate),
+	addNewtemplate: _.template(restaurantApp.Templates.RestaurantAddNewTemplate),
+	editTemplate: _.template(restaurantApp.Templates.RestaurantEditTemplate),
+
+	isNew: true,
 
 	events: {
 		'click button': 	'save'
@@ -134,17 +148,41 @@ restaurantApp.Views.RestaurantAddView = Backbone.View.extend({
 	
 	},
 
-	render: function(id) {
-		this.$el.html(this.template());
+	render: function() {
+
+		// first, let's figure out if we're creating a new model, or updating
+		// an existing.
+		this.isNew = (this.model === undefined) ? true : false;
+		
+		// set $el with the correct template (based on if model is new or not)
+		if (this.isNew) {
+			this.$el.html(this.addNewtemplate());
+		} else {
+			this.$el.html(this.editTemplate(this.model.toJSON()));
+		}
+
+		// show it off!
 		$('#restaurantDetails').html(this.el);
+
 	},
 
 	save: function(e) {
+
+		var id;
+		
+		// no form submit - just ruins everything :)
 		e.preventDefault();
-		var model = new restaurantApp.Models.Restaurant();
-		var collection = restaurantApp.app.restaurantList;
-		var id = collection.length + 1;
-		model.set({
+
+		// set the id, and set the model to a new instance if it's not an update
+		if (this.isNew) {
+			id = this.collection.length + 1;
+			this.model = new restaurantApp.Models.Restaurant();
+		} else {
+			id = this.model.id;
+		}
+
+		// get the user's input and store it in the model
+		this.model.set({
 			id: id,
 			name: $('#name').val(),
 			address: $('#address').val(),
@@ -160,8 +198,15 @@ restaurantApp.Views.RestaurantAddView = Backbone.View.extend({
 				}
 			]
 		});
-		collection.add(model);
-		$('#restaurantDetails').html('<p>Cool! Your restaurant has been added');
+		
+		// if this is new, we'll need to add it to the collection
+		if (this.isNew) {
+			this.collection.add(this.model);
+		}
+		
+		// we're done - let em know
+		$('#restaurantDetails').html('<p>Cool! Your restaurant has been added/updated');
+		
 	}
 
 });
