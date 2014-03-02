@@ -6126,6 +6126,28 @@ footer {
     margin-right: 8px; } }
 
 @media screen and (max-width: 600px) {
+  #restaurantList .list-group {
+    top: 0;
+    width: 93%;
+    height: 42px;
+    position: absolute;
+    overflow: hidden; }
+
+  #restaurantList .list-group:hover {
+    height: auto; }
+
+  #restaurantList .list-group:before {
+    width: 100%;
+    display: block;
+    border: 1px #EDEDED solid;
+    border-radius: 4px;
+    content: "See restaurant list";
+    line-height: 42px;
+    text-align: center; }
+
+  #restaurantList button {
+    margin-top: 72px; }
+
   #restaurantDetails img {
     position: inherit; }
 
