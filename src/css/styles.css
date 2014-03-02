@@ -6081,6 +6081,8 @@ footer {
       display: inline;
       color: #FAFAFA; }
 
+#restaurantList button {
+  margin-bottom: 30px; }
 #restaurantList select.form-control {
   margin-bottom: 30px; }
 
@@ -6109,7 +6111,10 @@ footer {
     font-size: 1.5em;
     margin-top: 70px; }
   #restaurantDetails #getStarted span {
-    -webkit-animation: 2s 'moveIt' ease-in-out infinite alternate; }
+    -webkit-animation: 1s 'moveIt' infinite alternate; }
+  #restaurantDetails form,
+  #restaurantDetails p {
+    padding: 25px; }
 
 @-webkit-keyframes 'moveIt' {
   from {
