@@ -29,3 +29,31 @@ restaurantApp.Templates.RestaurantDetailTemplate = '\
 		</ul>\
 	<% } %>\
 ';
+
+restaurantApp.Templates.RestaurantAddNewTemplate = '\
+	<div class="form-group">\
+		<label for="exampleInputEmail1">Restaurant Name</label>\
+		<input id="name" class="form-control" type="text" placeholder="Ex. Bob\' Big Boy">\
+	</div>\
+	<div class="form-group">\
+		<label for="exampleInputEmail1">Restaurant\'s Street Address</label>\
+		<input id="address" class="form-control" type="text" placeholder="Ex. 1 Infinite Loop">\
+	</div>\
+	<div class="form-group">\
+		<label for="exampleInputEmail1">Restaurant\'s City</label>\
+		<input id="city" class="form-control" type="text" placeholder="Ex. San Jose">\
+	</div>\
+	<div class="form-group">\
+		<label for="exampleInputEmail1">Favorite Entrée</label>\
+		<input id="favoriteEntree" class="form-control" type="text" placeholder="Ex. San Jose">\
+	</div>\
+	<div class="form-group">\
+		<label for="exampleInputEmail1">Favorite Drink</label>\
+		<input id="favoriteDrink" class="form-control" type="text" placeholder="Ex. San Jose">\
+	</div>\
+	<button type="submit" class="btn btn-success">Save It</button>\
+';
+
+restaurantApp.Templates.Controls = '\
+	<button id="addNew" type="button" class="btn btn-primary">New Restaurant</button>\
+';

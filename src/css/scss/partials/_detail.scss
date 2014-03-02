@@ -30,7 +30,12 @@
 		margin-top: 70px;
 	}
 	#getStarted span {
-		-webkit-animation: 2s 'moveIt' ease-in-out infinite alternate;
+		-webkit-animation: 1s 'moveIt' infinite alternate;
+	}
+
+	form, 
+	p {
+		padding: 25px;
 	}
 
 }

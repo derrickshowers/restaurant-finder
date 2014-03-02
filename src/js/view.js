@@ -7,12 +7,15 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 
 	template: _.template(restaurantApp.Templates.RestaurantListTemplate),
 
+	controls: _.template(restaurantApp.Templates.Controls),
+
 	events: {
-		'change select'		: 'render'
+		'change select'		: 'render',
+		'click #addNew'		: 'addNew',
 	},
 
 	initialize: function() {
-		this.collection.on('reset', this.render, this);
+		this.collection.on('reset add remove', this.render, this);
 	},
 
 	render: function() {
@@ -36,8 +39,11 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 			}
 		}, this);
 
+		// show the controls
+		this.$el.html(this.controls);
+
 		// render the select box and choose current city
-		this.$el.html(this.buildSelect());
+		this.$el.append(this.buildSelect());
 		$('#selectCity').val(selectedCity);
 
 		// now let's add the childen of the jQuery template
@@ -88,6 +94,11 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 		});
 
 		return $select;
+	},
+
+	addNew: function() {
+		var newView = new restaurantApp.Views.RestaurantAddView;
+		newView.render();
 	}
 
 });
@@ -97,13 +108,60 @@ restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
 	template: _.template(restaurantApp.Templates.RestaurantDetailTemplate),
 
 	initialize: function() {
-		this.$el.html('<p id="getStarted"><span class="glyphicon glyphicon-arrow-left"></span>  Go ahead and choose a restaurant</p>')
+	
 	},
 
 	render: function(id) {
 		var model = restaurantApp.app.restaurantList.get(id);
 		this.$el.html(this.template(model.toJSON()));
 		restaurantApp.app.restaurantListView.selectedState(id);
+		$('#restaurantDetails').html(this.el);
+	}
+
+});
+
+restaurantApp.Views.RestaurantAddView = Backbone.View.extend({
+
+	tagName: 'form',
+
+	template: _.template(restaurantApp.Templates.RestaurantAddNewTemplate),
+
+	events: {
+		'click button': 	'save'
+	},
+
+	initialize: function() {
+	
+	},
+
+	render: function(id) {
+		this.$el.html(this.template());
+		$('#restaurantDetails').html(this.el);
+	},
+
+	save: function(e) {
+		e.preventDefault();
+		var model = new restaurantApp.Models.Restaurant();
+		var collection = restaurantApp.app.restaurantList;
+		var id = collection.length + 1;
+		model.set({
+			id: id,
+			name: $('#name').val(),
+			address: $('#address').val(),
+			city: $('#city').val(),
+			favorites: [
+				{ 
+					'type' : 'Entrée',
+					'name' : $('#favoriteEntree').val()
+				},
+				{ 
+					'type' : 'Drink',
+					'name' : $('#favoriteDrink').val()
+				}
+			]
+		});
+		collection.add(model);
+		$('#restaurantDetails').html('<p>Cool! Your restaurant has been added');
 	}
 
 });
