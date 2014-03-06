@@ -6146,7 +6146,8 @@ footer {
     text-align: center; }
 
   #restaurantList button {
-    margin-top: 72px; }
+    margin-top: 72px;
+    font-size: .75em; }
 
   #restaurantDetails img {
     position: inherit; }
