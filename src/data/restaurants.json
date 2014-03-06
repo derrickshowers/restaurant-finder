@@ -5,7 +5,7 @@
 		"city" : "San Jose",
 		"address" : "25 North San Pedro Street",
 		"main_image" : "oflahertys.jpg",
-		"favorites" : [
+		"signatures" : [
 			{ 
 				"type": "Entrée", 
 				"name": "irish nachos" 
@@ -73,7 +73,7 @@
 		"city" : "South San Jose",
 		"address" : "71 Curtner Ave",
 		"main_image" : "boiling-crab.jpg",
-		"favorites" : [
+		"signatures" : [
 			{
 				"type": "Entrée", 
 				"name": "shrimp" 
@@ -90,7 +90,7 @@
 		"city" : "San Jose",
 		"address" : "1435 The Alameda",
 		"main_image" : "wine-affairs.jpg",
-		"favorites" : [
+		"signatures" : [
 			{ 
 				"type": "Entrée", 
 				"name": "cheese" 

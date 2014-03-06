@@ -187,14 +187,14 @@ restaurantApp.Views.RestaurantAddEditView = Backbone.View.extend({
 			name: $('#name').val(),
 			address: $('#address').val(),
 			city: $('#city').val(),
-			favorites: [
+			signatures: [
 				{ 
 					'type' : 'Entrée',
-					'name' : $('#favoriteEntree').val()
+					'name' : $('#signatureEntree').val()
 				},
 				{ 
 					'type' : 'Drink',
-					'name' : $('#favoriteDrink').val()
+					'name' : $('#signatureDrink').val()
 				}
 			]
 		});
