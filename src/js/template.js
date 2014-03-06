@@ -13,9 +13,9 @@ restaurantApp.Templates.RestaurantDetailTemplate = '\
 		</ul>\
 	</div>\
 	<img alt="<%= name %>" height="100" width="100" src="/img/<%= main_image %>"/>\
-	<h4>Favorites:</h4>\
+	<h4>Signatures:</h4>\
 	<ul>\
-		<% _.each(favorites, function(favorite) { %> <li><%= favorite.type %>: <%= favorite.name %></li> <% }); %>\
+		<% _.each(signatures, function(item) { %> <li><%= item.type %>: <%= item.name %></li> <% }); %>\
 	</ul>\
 	<% if (typeof specials !== "undefined") { %>\
 		<h4>Specials:</h4>\
@@ -44,12 +44,12 @@ restaurantApp.Templates.RestaurantAddNewTemplate = '\
 		<input id="city" class="form-control" type="text" placeholder="Ex. San Jose">\
 	</div>\
 	<div class="form-group">\
-		<label for="favoriteEntree">Favorite Entrée</label>\
-		<input id="favoriteEntree" class="form-control" type="text" placeholder="Ex. San Jose">\
+		<label for="signatureEntree">Signature Entrée</label>\
+		<input id="signatureEntree" class="form-control" type="text" placeholder="Ex. San Jose">\
 	</div>\
 	<div class="form-group">\
-		<label for="favoriteDrink">Favorite Drink</label>\
-		<input id="favoriteDrink" class="form-control" type="text" placeholder="Ex. San Jose">\
+		<label for="signatureDrink">Signature Drink</label>\
+		<input id="signatureDrink" class="form-control" type="text" placeholder="Ex. San Jose">\
 	</div>\
 	<button type="submit" class="btn btn-success">Save It</button>\
 ';
@@ -68,12 +68,12 @@ restaurantApp.Templates.RestaurantEditTemplate = '\
 		<input <% if (city !== undefined) { %>value="<%= city %>"<% } %> id="city" class="form-control" type="text" placeholder="Ex. San Jose">\
 	</div>\
 	<div class="form-group">\
-		<label for="favoriteEntree">Favorite Entrée</label>\
-		<input <% if (favorites[0].name !== undefined) { %>value="<%= favorites[0].name %>"<% } %> id="favoriteEntree" class="form-control" type="text" placeholder="Ex. San Jose">\
+		<label for="signatureEntree">Signature Entrée</label>\
+		<input <% if (signatures[0].name !== undefined) { %>value="<%= signatures[0].name %>"<% } %> id="signatureEntree" class="form-control" type="text" placeholder="Ex. San Jose">\
 	</div>\
 	<div class="form-group">\
-		<label for="favoriteDrink">Favorite Drink</label>\
-		<input <% if (favorites[1].name !== undefined) { %>value="<%= favorites[1].name %>"<% } %> id="favoriteDrink" class="form-control" type="text" placeholder="Ex. San Jose">\
+		<label for="signatureDrink">Signature Drink</label>\
+		<input <% if (signatures[1].name !== undefined) { %>value="<%= signatures[1].name %>"<% } %> id="signatureDrink" class="form-control" type="text" placeholder="Ex. San Jose">\
 	</div>\
 	<button type="submit" class="btn btn-success">Save It</button>\
 ';
