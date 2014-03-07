@@ -7,16 +7,17 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 
 	template: _.template(restaurantApp.Templates.RestaurantListTemplate),
 
-	controls: _.template(restaurantApp.Templates.Controls),
-
 	events: {
-		'change select'		: 'render',
-		'click #addNew'		: 'addNew',
-		'click #edit'		: 'edit'
+		'change select'		: 'render'
 	},
 
 	initialize: function() {
+		
 		this.collection.on('reset change add remove', this.render, this);
+		
+		// adding a listener to 'new restaurant' button - outside of view
+		$('#addNew').click($.proxy(this.addNew, this));
+
 	},
 
 	render: function() {
@@ -41,11 +42,8 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 			}
 		}, this);
 
-		// show the controls
-		this.$el.html(this.controls);
-
 		// render the select box and choose current city
-		this.$el.append(this.buildSelect());
+		this.$el.html(this.buildSelect());
 		$('#selectCity').val(selectedCity);
 
 		// now let's add the childen of the jQuery template
@@ -105,28 +103,32 @@ restaurantApp.Views.RestaurantListView = Backbone.View.extend({
 		newView.render();
 	},
 
-	// called when 'Edit This Restaurant' button is clicked. Sets up a new RestaurantAddEditView
-	// view, associating it with the current restaurant model, and then render it.
-	edit: function() {
-		var newView = new restaurantApp.Views.RestaurantAddEditView({ model: this.selectedRestaurant });
-		newView.render();
-	}
-
 });
 
 restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
 
 	template: _.template(restaurantApp.Templates.RestaurantDetailTemplate),
 
+	events: {
+		'click #edit'		: 'edit'
+	},
+
 	initialize: function() {
-	
+		
 	},
 
 	render: function(id) {
-		var model = restaurantApp.app.restaurantList.get(id);
-		this.$el.html(this.template(model.toJSON()));
+		this.model = restaurantApp.app.restaurantList.get(id);
+		this.$el.html(this.template(this.model.toJSON()));
 		restaurantApp.app.restaurantListView.selectedState(id);
 		$('#restaurantDetails').html(this.el);
+	},
+
+	// called when 'Edit This Restaurant' button is clicked. Sets up a new RestaurantAddEditView
+	// view, associating it with the current restaurant model, and then render it.
+	edit: function() {
+		var newView = new restaurantApp.Views.RestaurantAddEditView({ model: this.model });
+		newView.render();
 	}
 
 });
