@@ -10,7 +10,6 @@ restaurantApp.app = new (Backbone.Router.extend({
 	initialize: function() {
 		this.restaurantList = new restaurantApp.Collections.RestaurantList();
 		this.restaurantListView = new restaurantApp.Views.RestaurantListView({ collection: this.restaurantList });
-		this.restaurantDetailView = new restaurantApp.Views.RestaurantDetailView();
 		this.restaurantAddEditView = new restaurantApp.Views.RestaurantAddEditView();
 		$('#restaurantList').html(this.restaurantListView.el);
 	},
@@ -24,15 +23,15 @@ restaurantApp.app = new (Backbone.Router.extend({
 	},
 
 	showDetail: function(id) {
-		var self = this;
+		var detailView = new restaurantApp.Views.RestaurantDetailView();
 
 		if (!this.restaurantList.length > 0) {
 			this.restaurantList.fetch({ reset: true });
 			this.restaurantList.on('reset', function() {
-				self.restaurantDetailView.render(id);
+				detailView.render(id);
 			});
 		} else {
-			this.restaurantDetailView.render(id);
+			detailView.render(id);
 		}
 	}
 

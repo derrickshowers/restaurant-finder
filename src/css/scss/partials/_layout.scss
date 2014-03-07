@@ -8,11 +8,17 @@ header {
 	color: #FAFAFA;
 
 	.container {
+		position: relative;
 		padding: 25px;
 	}
 
 	h1 {
 		margin-top: 0;
+	}
+
+	#addNew {
+		top: 50px; right: 2%;
+		position: absolute;
 	}
 }
 

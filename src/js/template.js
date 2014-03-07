@@ -5,29 +5,38 @@ restaurantApp.Templates.RestaurantListTemplate = '\
 	<a class="list-group-item" href="#<%= id %>" alt="<%= name %>"><%= name %></a>\
 ';
 restaurantApp.Templates.RestaurantDetailTemplate = '\
-	<div class="clearfix">\
-		<h3><%= name %></h3>\
-		<ul class="address">\
-			<li><%= address %></li>\
-			<li><%= city %></li>\
-		</ul>\
+	<div class="row controls">\
+		<button id="edit" type="button" class="btn btn-primary pull-right">Edit</button>\
 	</div>\
-	<img alt="<%= name %>" height="100" width="100" src="/img/<%= main_image %>"/>\
-	<h4>Signatures:</h4>\
-	<ul>\
-		<% _.each(signatures, function(item) { %> <li><%= item.type %>: <%= item.name %></li> <% }); %>\
-	</ul>\
-	<% if (typeof specials !== "undefined") { %>\
-		<h4>Specials:</h4>\
-		<ul>\
-			<% _.each(specials, function(special) { %> <li><%= special.day %>:\
-				<ul><% _.each(special.drinks, function(drink) { %>\
-					<li><%= drink %></li>\
-				<% }); %>\
+	<div class="row">\
+		<div class="col-md-6">\
+			<img alt="<%= name %>" height="100" width="100" src="/img/<%= main_image %>"/>\
+			<div class="pull-left">\
+				<h3><%= name %></h3>\
+				<ul class="address">\
+					<li><%= address %></li>\
+					<li><%= city %></li>\
 				</ul>\
-			</li> <% }); %>\
-		</ul>\
-	<% } %>\
+			</div>\
+			<h4>Signatures:</h4>\
+			<ul>\
+				<% _.each(signatures, function(item) { %> <li><%= item.type %>: <%= item.name %></li> <% }); %>\
+			</ul>\
+		</div>\
+		<div class="col-md-6">\
+			<% if (typeof specials !== "undefined") { %>\
+				<h4>Specials:</h4>\
+				<ul>\
+					<% _.each(specials, function(special) { %> <li><%= special.day %>:\
+						<ul><% _.each(special.drinks, function(drink) { %>\
+							<li><%= drink %></li>\
+						<% }); %>\
+						</ul>\
+					</li> <% }); %>\
+				</ul>\
+			<% } %>\
+		<div>\
+	</div>\
 ';
 
 restaurantApp.Templates.RestaurantAddNewTemplate = '\
@@ -76,9 +85,4 @@ restaurantApp.Templates.RestaurantEditTemplate = '\
 		<input <% if (signatures[1].name !== undefined) { %>value="<%= signatures[1].name %>"<% } %> id="signatureDrink" class="form-control" type="text" placeholder="Ex. San Jose">\
 	</div>\
 	<button type="submit" class="btn btn-success">Save It</button>\
-';
-
-restaurantApp.Templates.Controls = '\
-	<button id="addNew" type="button" class="btn btn-primary">New Restaurant</button>\
-	<button id="edit" type="button" class="btn btn-primary">Edit This Restaurant</button>\
 ';
