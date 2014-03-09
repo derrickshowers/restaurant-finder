@@ -17,52 +17,80 @@
 		],
 		"specials" : [
 			{
-				"day" : "sunday",
-				"drinks" : [
-					"bloody mary",
-					"mimosa"
+				"weekday" : "sunday",
+				"details" : [
+					{
+						"title" : "Trivia",
+						"type" : "event",
+						"time" : "7pm",
+						"description" : "Join us for Trivia!"
+					},
+					{
+						"title" : "All-You-Can-Eat",
+						"type" : "food",
+						"time" : "5pm",
+						"description" : "Join us for all-you-can-eat irish food."
+					}
 				]
 			},
 			{
-				"day" : "monday",
-				"drinks" : [
-					"bloody mary",
-					"mimosa"
+				"weekday" : "monday",
+				"details" : [
 				]
 			},
 			{
-				"day" : "tuesday",
-				"drinks" : [
-					"bloody mary",
-					"mimosa"
+				"weekday" : "tuesday",
+				"tuesday" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All beer $1 off"
+					}
 				]
 			},
 			{
-				"day" : "wednesday",
-				"drinks" : [
-					"bloody mary",
-					"mimosa"
+				"weekday" : "wednesday",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All beer $1 off"
+					}
 				]
 			},
 			{
-				"day" : "thursday",
-				"drinks" : [
-					"bloody mary",
-					"mimosa"
+				"weekday" : "thursday",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All beer $1 off"
+					}
 				]
 			},
 			{
-				"day" : "friday",
-				"drinks" : [
-					"bloody mary",
-					"mimosa"
+				"weekday" : "friday",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All beer $1 off"
+					}
 				]
 			},
 			{
-				"day" : "saturdaydd",
-				"drinks" : [
-					"bloody mary",
-					"mimosa"
+				"weekday" : "saturday",
+				"detail" : [
+					{
+						"title" : "Bloody Mary Saturday",
+						"type" : "event",
+						"time" : "10am - 2pm",
+						"description" : "$4 Bloody Marys"
+					}
 				]
 			}
 		]
