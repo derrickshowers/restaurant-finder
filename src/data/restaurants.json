@@ -17,7 +17,7 @@
 		],
 		"specials" : [
 			{
-				"weekday" : "sunday",
+				"weekday" : "Su",
 				"details" : [
 					{
 						"title" : "Trivia",
@@ -34,23 +34,12 @@
 				]
 			},
 			{
-				"weekday" : "monday",
+				"weekday" : "Mo",
 				"details" : [
 				]
 			},
 			{
-				"weekday" : "tuesday",
-				"tuesday" : [
-					{
-						"title" : "Happy Hour Specials",
-						"type" : "drinks",
-						"time" : "5pm - 7pm",
-						"description" : "All beer $1 off"
-					}
-				]
-			},
-			{
-				"weekday" : "wednesday",
+				"weekday" : "Tu",
 				"details" : [
 					{
 						"title" : "Happy Hour Specials",
@@ -61,7 +50,7 @@
 				]
 			},
 			{
-				"weekday" : "thursday",
+				"weekday" : "We",
 				"details" : [
 					{
 						"title" : "Happy Hour Specials",
@@ -72,7 +61,7 @@
 				]
 			},
 			{
-				"weekday" : "friday",
+				"weekday" : "Th",
 				"details" : [
 					{
 						"title" : "Happy Hour Specials",
@@ -83,8 +72,19 @@
 				]
 			},
 			{
-				"weekday" : "saturday",
-				"detail" : [
+				"weekday" : "Fr",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All beer $1 off"
+					}
+				]
+			},
+			{
+				"weekday" : "Sa",
+				"details" : [
 					{
 						"title" : "Bloody Mary Saturday",
 						"type" : "event",

@@ -15,6 +15,13 @@ button.btn {
 .clearfix:after {
 	clear: both;
 }
+.darkBox {
+	background-color: #333;
+	color: #FAFAFA;
+}
+.roundCorners {
+	border-radius: 4px;
+}
 
 /* browser outdated message */
 .browsehappy {
