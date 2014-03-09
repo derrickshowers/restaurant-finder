@@ -6043,6 +6043,13 @@ button.btn {
 .clearfix:after {
   clear: both; }
 
+.darkBox {
+  background-color: #333;
+  color: #FAFAFA; }
+
+.roundCorners {
+  border-radius: 4px; }
+
 /* browser outdated message */
 .browsehappy {
   height: 100%;
@@ -6129,6 +6136,8 @@ footer {
   #restaurantDetails form,
   #restaurantDetails p {
     padding: 25px; }
+  #restaurantDetails .darkBox ul {
+    margin: 15px 0; }
 
 @-webkit-keyframes 'moveIt' {
   from {

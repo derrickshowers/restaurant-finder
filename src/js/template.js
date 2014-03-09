@@ -23,19 +23,27 @@ restaurantApp.Templates.RestaurantDetailTemplate = '\
 				<% _.each(signatures, function(item) { %> <li><%= item.type %>: <%= item.name %></li> <% }); %>\
 			</ul>\
 		</div>\
-		<div class="col-md-6">\
+		<div class="col-md-6 darkBox roundCorners">\
 			<% if (typeof specials !== "undefined") { %>\
 				<h4>Specials:</h4>\
-				<ul>\
-					<% _.each(specials, function(special) { %> <li><%= special.weekday %>:\
-						<ul><% _.each(special.details, function(detail) { %>\
-							<li><%= detail.title %></li>\
-							<li><%= detail.time %></li>\
-							<li><%= detail.description %></li>\
-						<% }); %>\
-						</ul>\
-					</li> <% }); %>\
+				<ul class="nav nav-tabs">\
+					<% _.each(specials, function(special) { %>\
+						<li><a href="#<%= special.weekday %>" data-toggle="tab"><%= special.weekday %></a></li>\
+					<% }); %>\
 				</ul>\
+				<div class="tab-content">\
+					<% _.each(specials, function(special) { %>\
+						<div class="tab-pane" id="<%= special.weekday %>">\
+							<% _.each(special.details, function(detail) { %>\
+								<ul>\
+									<li><%= detail.title %></li>\
+									<li><%= detail.time %></li>\
+									<li><%= detail.description %></li>\
+								</ul>\
+							<% }); %>\
+						</div>\
+					<% }); %>\
+				</div>\
 			<% } %>\
 		<div>\
 	</div>\
