@@ -1,5 +1,3 @@
-var restaurantApp = restaurantApp || {};
-
 restaurantApp.Models = restaurantApp.Models || {};
 restaurantApp.Models.Restaurant = Backbone.Model.extend({
 	defaults: {
