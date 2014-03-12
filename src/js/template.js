@@ -1,5 +1,3 @@
-var restaurantApp = restaurantApp || {};
-
 restaurantApp.Templates = restaurantApp.Views || {};
 restaurantApp.Templates.RestaurantListTemplate = '\
 	<a class="list-group-item" href="#<%= id %>" alt="<%= name %>"><%= name %></a>\
