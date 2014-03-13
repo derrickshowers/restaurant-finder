@@ -1,9 +1,10 @@
-define(['model'], function() {
+define(['model'], function(model) {
 
-	restaurantApp.Collections = restaurantApp.Collections || {};
-	restaurantApp.Collections.RestaurantList = Backbone.Collection.extend({
-		model: restaurantApp.Models.Restaurant,
-		url: '/data/restaurants.json'
-	});
+	return {
+		RestaurantList: Backbone.Collection.extend({
+			model: model.Restaurant,
+			url: '/data/restaurants.json'
+		})
+	}
 
 });

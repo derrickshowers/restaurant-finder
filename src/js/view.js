@@ -1,11 +1,10 @@
-define(['template'], function() {
+define(['template'], function(template) {
 
-	restaurantApp.Views = restaurantApp.Views || {};
-	restaurantApp.Views.RestaurantListView = Backbone.View.extend({
+	var RestaurantListView = Backbone.View.extend({
 		
 		tagName: 'div',
 
-		template: _.template(restaurantApp.Templates.RestaurantListTemplate),
+		template: _.template(template.RestaurantListTemplate),
 
 		events: {
 			'change select'		: 'render'
@@ -99,15 +98,15 @@ define(['template'], function() {
 		// called when 'New Restaurant' button is clicked. Sets up a new RestaurantAddEditView
 		// view, and then renders it.
 		addNew: function() {
-			var newView = new restaurantApp.Views.RestaurantAddEditView({ collection: restaurantApp.app.restaurantList });
+			var newView = new RestaurantAddEditView({ collection: restaurantApp.app.restaurantList });
 			newView.render();
 		},
 
 	});
+	
+	var RestaurantDetailView = Backbone.View.extend({
 
-	restaurantApp.Views.RestaurantDetailView = Backbone.View.extend({
-
-		template: _.template(restaurantApp.Templates.RestaurantDetailTemplate),
+		template: _.template(template.RestaurantDetailTemplate),
 
 		events: {
 			'click #edit'		: 'edit'
@@ -127,18 +126,18 @@ define(['template'], function() {
 		// called when 'Edit This Restaurant' button is clicked. Sets up a new RestaurantAddEditView
 		// view, associating it with the current restaurant model, and then render it.
 		edit: function() {
-			var newView = new restaurantApp.Views.RestaurantAddEditView({ model: this.model });
+			var newView = new RestaurantAddEditView({ model: this.model });
 			newView.render();
 		}
 
 	});
 
-	restaurantApp.Views.RestaurantAddEditView = Backbone.View.extend({
+	var RestaurantAddEditView = Backbone.View.extend({
 
 		tagName: 'form',
 
-		addNewtemplate: _.template(restaurantApp.Templates.RestaurantAddNewTemplate),
-		editTemplate: _.template(restaurantApp.Templates.RestaurantEditTemplate),
+		addNewtemplate: _.template(template.RestaurantAddNewTemplate),
+		editTemplate: _.template(template.RestaurantEditTemplate),
 
 		isNew: true,
 
@@ -212,5 +211,11 @@ define(['template'], function() {
 		}
 
 	});
+
+	return {
+		RestaurantListView: RestaurantListView,
+		RestaurantDetailView: RestaurantDetailView,
+		RestaurantAddEditView: RestaurantAddEditView
+	}
 
 });

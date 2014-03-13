@@ -1,4 +1,4 @@
-define(['collection', 'view'], function() {
+define(['collection', 'view'], function(collection, view) {
 
 	restaurantApp.app = new (Backbone.Router.extend({
 
@@ -8,9 +8,9 @@ define(['collection', 'view'], function() {
 		},
 
 		initialize: function() {
-			this.restaurantList = new restaurantApp.Collections.RestaurantList();
-			this.restaurantListView = new restaurantApp.Views.RestaurantListView({ collection: this.restaurantList });
-			this.restaurantAddEditView = new restaurantApp.Views.RestaurantAddEditView();
+			this.restaurantList = new collection.RestaurantList();
+			this.restaurantListView = new view.RestaurantListView({ collection: this.restaurantList });
+			this.restaurantAddEditView = new view.RestaurantAddEditView();
 			$('#restaurantList').html(this.restaurantListView.el);
 		},
 
@@ -23,7 +23,7 @@ define(['collection', 'view'], function() {
 		},
 
 		showDetail: function(id) {
-			var detailView = new restaurantApp.Views.RestaurantDetailView();
+			var detailView = new view.RestaurantDetailView();
 
 			if (!this.restaurantList.length > 0) {
 				this.restaurantList.fetch({ reset: true });
