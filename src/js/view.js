@@ -1,4 +1,4 @@
-define(['template'], function(template) {
+define(['template', 'model'], function(template, model) {
 
 	var RestaurantListView = Backbone.View.extend({
 		
@@ -177,7 +177,7 @@ define(['template'], function(template) {
 			// set the id, and set the model to a new instance if it's not an update
 			if (this.isNew) {
 				id = this.collection.length + 1;
-				this.model = new restaurantApp.Models.Restaurant();
+				this.model = new model.Restaurant();
 			} else {
 				id = this.model.id;
 			}
