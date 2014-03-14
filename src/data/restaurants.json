@@ -110,6 +110,79 @@
 				"type": "Drink",
 			 	"name": "coke"
 			}
+		],
+		"specials" : [
+			{
+				"weekday" : "Su",
+				"details" : [
+					{
+						"title" : "Trivia",
+						"type" : "event",
+						"time" : "7pm",
+						"description" : "Join us for Trivia!"
+					},
+					{
+						"title" : "Dinosaur Cocktails",
+						"type" : "drinks",
+						"time" : "5pm - 9pm",
+						"description" : "Join us for dinosaur themed cocktails."
+					}
+				]
+			},
+			{
+				"weekday" : "Mo",
+				"details" : [
+				]
+			},
+			{
+				"weekday" : "Tu",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All mixed drinks $1 off"
+					}
+				]
+			},
+			{
+				"weekday" : "We",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All mixed drinks  $1 off"
+					}
+				]
+			},
+			{
+				"weekday" : "Th",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All mixed drinks  $1 off"
+					}
+				]
+			},
+			{
+				"weekday" : "Fr",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All mixed drinks  $1 off"
+					}
+				]
+			},
+			{
+				"weekday" : "Sa",
+				"details" : [
+				]
+			}
 		]
 	},
 	{
@@ -126,6 +199,79 @@
 			{ 
 				"type": "Drink",
 			 	"name": "wine"
+			}
+		],
+		"specials" : [
+			{
+				"weekday" : "Su",
+				"details" : [
+					{
+						"title" : "Trivia",
+						"type" : "event",
+						"time" : "7pm",
+						"description" : "Join us for Trivia!"
+					}
+				]
+			},
+			{
+				"weekday" : "Mo",
+				"details" : [
+				]
+			},
+			{
+				"weekday" : "Tu",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All beer $1 off"
+					}
+				]
+			},
+			{
+				"weekday" : "We",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All beer $1 off"
+					}
+				]
+			},
+			{
+				"weekday" : "Th",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All beer $1 off"
+					}
+				]
+			},
+			{
+				"weekday" : "Fr",
+				"details" : [
+					{
+						"title" : "Happy Hour Specials",
+						"type" : "drinks",
+						"time" : "5pm - 7pm",
+						"description" : "All beer $1 off"
+					}
+				]
+			},
+			{
+				"weekday" : "Sa",
+				"details" : [
+					{
+						"title" : "Bloody Mary Saturday",
+						"type" : "event",
+						"time" : "10am - 2pm",
+						"description" : "$4 Bloody Marys"
+					}
+				]
 			}
 		]
 	}
