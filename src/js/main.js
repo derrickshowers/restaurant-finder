@@ -6,6 +6,7 @@ require.config({
 		backbone: 'vendor/backbone',
 		underscore: 'vendor/underscore',
 		bootstrap: 'vendor/bootstrap', 
+		text: 'vendor/text'
 	},
 	shim: {
 		backbone: {

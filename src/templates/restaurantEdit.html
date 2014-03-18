@@ -1,0 +1,21 @@
+<div class="form-group">
+	<label for="name">Restaurant Name</label>
+	<input <% if (name !== undefined) { %>value="<%= name %>"<% } %> id="name" class="form-control" type="text" placeholder="Ex. Outback Steakhouse">
+</div>
+<div class="form-group">
+	<label for="address">Restaurant's Street Address</label>
+	<input <% if (address !== undefined) { %>value="<%= address %>"<% } %> id="address" class="form-control" type="text" placeholder="Ex. 1 Infinite Loop">
+</div>
+<div class="form-group">
+	<label for="city">Restaurant's City</label>
+	<input <% if (city !== undefined) { %>value="<%= city %>"<% } %> id="city" class="form-control" type="text" placeholder="Ex. San Jose">
+</div>
+<div class="form-group">
+	<label for="signatureEntree">Signature Entrée</label>
+	<input <% if (signatures[0].name !== undefined) { %>value="<%= signatures[0].name %>"<% } %> id="signatureEntree" class="form-control" type="text" placeholder="Ex. Filet Mignon">
+</div>
+<div class="form-group">
+	<label for="signatureDrink">Signature Drink</label>
+	<input <% if (signatures[1].name !== undefined) { %>value="<%= signatures[1].name %>"<% } %> id="signatureDrink" class="form-control" type="text" placeholder="Ex. Lemondrop Martini">
+</div>
+<button type="submit" class="btn btn-success">Save It</button>
