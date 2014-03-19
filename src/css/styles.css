@@ -6189,6 +6189,9 @@ form #dayTime input {
     line-height: 42px;
     text-align: center; }
 
+  #restaurantList .list-group-item {
+    z-index: 1001; }
+
   #restaurantList button {
     margin-top: 72px;
     font-size: .75em; }
@@ -6197,6 +6200,8 @@ form #dayTime input {
     border: none; }
     #restaurantDetails img {
       position: inherit; }
+    #restaurantDetails .nav-tabs {
+      font-size: .7em; }
     #restaurantDetails .darkBox {
       padding: 5px 15px; }
 

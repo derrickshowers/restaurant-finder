@@ -32,6 +32,9 @@
 		line-height: 42px;
 		text-align: center;
 	}
+	#restaurantList .list-group-item {
+		z-index:1001;
+	}
 	#restaurantList button {
 		margin-top: 72px;
 		font-size: .75em;
@@ -42,6 +45,9 @@
 
 		img {
 			position: inherit;
+		}
+		.nav-tabs {
+			font-size: .7em;
 		}
 		.darkBox {
 			padding: 5px 15px;
