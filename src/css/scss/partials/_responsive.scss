@@ -1,6 +1,21 @@
+@media screen and (max-width: 1200px) {
+	.nav > li > a {
+		padding: 10px 10px;
+	}
+}
+
 @media screen and (max-width: 600px) {
+	header {
+		#addNew {
+			top: 0;
+			position: relative;
+		}
+	}
+	#restaurantList {
+		height: 125px;
+	}
 	#restaurantList .list-group {
-		top: 0;
+		top: 50px;
 		width: 93%; height: 42px;
 		position: absolute;
 		overflow: hidden;
@@ -22,8 +37,15 @@
 		font-size: .75em;
 	}
 
-	#restaurantDetails img {
-		position: inherit;
+	#restaurantDetails {
+		border: none;
+
+		img {
+			position: inherit;
+		}
+		.darkBox {
+			padding: 5px 15px;
+		}
 	}
 	#getStarted span {
 	 	display: none;
