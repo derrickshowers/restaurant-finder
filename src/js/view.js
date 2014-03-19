@@ -7,7 +7,8 @@ define(['template', 'model'], function(template, model) {
 		template: _.template(template.RestaurantListTemplate),
 
 		events: {
-			'change select'		: 'render'
+			'change select'				: 'render',
+			'click a'					: 'refresh'
 		},
 
 		initialize: function() {
@@ -101,6 +102,16 @@ define(['template', 'model'], function(template, model) {
 			var newView = new RestaurantAddEditView({ collection: restaurantApp.app.restaurantList });
 			newView.render();
 		},
+
+		refresh: function(e) {
+
+			// hmmm... this is a bit messy, but the only way I could think of to get the id and
+			// pass it to the router. This is to allow the user to click the same restaurant and
+			// re-render it.
+			var href = e.target.href;
+			var id = parseInt(href.match('#([0-9]).*')[1]);
+			restaurantApp.app.showDetail(id);
+		}
 
 	});
 	
