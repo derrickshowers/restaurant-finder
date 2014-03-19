@@ -6053,6 +6053,9 @@ button.btn {
 .hideText {
   text-indent: -9999px; }
 
+.cutInHalf {
+  width: 45%; }
+
 /* browser outdated message */
 .browsehappy {
   height: 100%;

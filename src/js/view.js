@@ -237,21 +237,14 @@ define(['template', 'model'], function(template, model) {
 		render: function() {
 			
 			this.$el.html(this.template(this.model.toJSON()));
-
-			// show it off!
 			$('#restaurantDetails').html(this.el);
 
 		},
 
 		save: function(e) {
-
-			var id;
 			
 			// no form submit - just ruins everything :)
 			e.preventDefault();
-
-			// set the id
-			id = this.model.id;
 
 			// get the user's input and store it in the model
 			var day = $('#day').val()
@@ -268,10 +261,11 @@ define(['template', 'model'], function(template, model) {
 					specials[i].details.push(specialsObject);
 				}
 			}
+
 			this.model.set(specials);
 			
 			// we're done - let em know
-			$('#restaurantDetails').html('<p>Cool! Your special has been added.');
+			$('#restaurantDetails').html('<p>Voilà! Your special has been added.');
 			
 		}
 
