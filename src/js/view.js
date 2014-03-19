@@ -254,7 +254,21 @@ define(['template', 'model'], function(template, model) {
 			id = this.model.id;
 
 			// get the user's input and store it in the model
+			var day = $('#day').val()
+			var specialsObject = {
+				title : $('#title').val(),
+				type : $('#type').val(),
+				time : $('#time').val(),
+				description : $('#description').val()
+			}
 
+			var specials = this.model.get('specials');
+			for (var i=0; i<specials.length; i++) {
+				if (day === specials[i].weekday) {
+					specials[i].details.push(specialsObject);
+				}
+			}
+			this.model.set(specials);
 			
 			// we're done - let em know
 			$('#restaurantDetails').html('<p>Cool! Your special has been added.');
