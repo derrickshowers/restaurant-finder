@@ -1,0 +1,17 @@
+form {
+	.inline {
+		float: left;
+	}
+	#dayTime {
+		#dayLabel {
+			display: block;
+		}
+		input,
+		select {
+			width: 45%;
+		}
+		input {
+			margin-left: 10%;
+		}
+	}
+}

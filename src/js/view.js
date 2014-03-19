@@ -109,7 +109,8 @@ define(['template', 'model'], function(template, model) {
 		template: _.template(template.RestaurantDetailTemplate),
 
 		events: {
-			'click #edit'		: 'edit'
+			'click #edit'		: 'edit',
+			'click #addSpecial' : 'addSpecial'
 		},
 
 		initialize: function() {
@@ -124,9 +125,16 @@ define(['template', 'model'], function(template, model) {
 		},
 
 		// called when 'Edit This Restaurant' button is clicked. Sets up a new RestaurantAddEditView
-		// view, associating it with the current restaurant model, and then render it.
+		// view, associates it with the current restaurant model, and then renders it.
 		edit: function() {
 			var newView = new RestaurantAddEditView({ model: this.model });
+			newView.render();
+		},
+
+		// called when 'Add A Special' button is clicked. Sets up a new RestaurantAddSpecialView
+		// view, associates it with the current restaurant model, and then renders it.
+		addSpecial: function() {
+			var newView = new RestaurantAddSpecialView({ model: this.model });
 			newView.render();
 		}
 
@@ -212,10 +220,54 @@ define(['template', 'model'], function(template, model) {
 
 	});
 
+	var RestaurantAddSpecialView = Backbone.View.extend({
+
+		tagName: 'form',
+
+		template: _.template(template.RestaurantAddSpecialTemplate),
+
+		events: {
+			'click button': 	'save'
+		},
+
+		initialize: function() {
+		
+		},
+
+		render: function() {
+			
+			this.$el.html(this.template(this.model.toJSON()));
+
+			// show it off!
+			$('#restaurantDetails').html(this.el);
+
+		},
+
+		save: function(e) {
+
+			var id;
+			
+			// no form submit - just ruins everything :)
+			e.preventDefault();
+
+			// set the id
+			id = this.model.id;
+
+			// get the user's input and store it in the model
+
+			
+			// we're done - let em know
+			$('#restaurantDetails').html('<p>Cool! Your special has been added.');
+			
+		}
+
+	});
+
 	return {
 		RestaurantListView: RestaurantListView,
 		RestaurantDetailView: RestaurantDetailView,
-		RestaurantAddEditView: RestaurantAddEditView
+		RestaurantAddEditView: RestaurantAddEditView,
+		RestaurantAddSpecialView: RestaurantAddSpecialView
 	}
 
 });

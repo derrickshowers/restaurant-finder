@@ -6050,6 +6050,9 @@ button.btn {
 .roundCorners {
   border-radius: 4px; }
 
+.hideText {
+  text-indent: -9999px; }
+
 /* browser outdated message */
 .browsehappy {
   height: 100%;
@@ -6096,6 +6099,16 @@ footer {
       display: inline;
       color: #FAFAFA; }
 
+form .inline {
+  float: left; }
+form #dayTime #dayLabel {
+  display: block; }
+form #dayTime input,
+form #dayTime select {
+  width: 45%; }
+form #dayTime input {
+  margin-left: 10%; }
+
 #restaurantList button {
   margin-bottom: 30px; }
 #restaurantList select.form-control {
@@ -6117,25 +6130,27 @@ footer {
   #restaurantDetails ul {
     list-style: none;
     padding: 0; }
-  #restaurantDetails .controls {
-    margin-bottom: 15px; }
-  #restaurantDetails ul.address {
-    float: left;
-    clear: left;
-    margin: 0 5%; }
   #restaurantDetails img {
     float: left;
     border-radius: 4px;
     margin-bottom: 50px;
     box-shadow: 3px 3px 4px 1px #666; }
+  #restaurantDetails form,
+  #restaurantDetails p {
+    padding: 25px; }
+  #restaurantDetails ul.address {
+    float: left;
+    clear: left;
+    margin: 0 5%; }
+  #restaurantDetails .controls {
+    margin-bottom: 15px; }
+    #restaurantDetails .controls button {
+      margin-left: 15px; }
   #restaurantDetails #getStarted {
     font-size: 1.5em;
     margin-top: 70px; }
   #restaurantDetails #getStarted span {
     -webkit-animation: 1s 'moveIt' infinite alternate; }
-  #restaurantDetails form,
-  #restaurantDetails p {
-    padding: 25px; }
   #restaurantDetails .darkBox ul {
     margin: 15px 0; }
 
