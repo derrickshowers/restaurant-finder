@@ -21,8 +21,16 @@
 		padding: 0;
 	}
 
-	.controls {
-		margin-bottom: 15px;
+	img {
+		float: left;
+		border-radius: 4px;
+		margin-bottom: 50px;
+		box-shadow: 3px 3px 4px 1px #666;
+	}
+
+	form, 
+	p {
+		padding: 25px;
 	}
 
 	ul.address {
@@ -31,11 +39,12 @@
 		margin: 0 5%;
 	}
 
-	img {
-		float: left;
-		border-radius: 4px;
-		margin-bottom: 50px;
-		box-shadow: 3px 3px 4px 1px #666;
+	.controls {
+		margin-bottom: 15px;
+
+		button {
+			margin-left: 15px;
+		}
 	}
 
 	#getStarted {
@@ -45,11 +54,6 @@
 
 	#getStarted span {
 		-webkit-animation: 1s 'moveIt' infinite alternate;
-	}
-
-	form, 
-	p {
-		padding: 25px;
 	}
 
 	.darkBox ul {
