@@ -6127,7 +6127,7 @@ form #dayTime input {
   #restaurantDetails h3 {
     float: left;
     width: 110%;
-    margin: 10px 5%; }
+    margin: 10px; }
   #restaurantDetails h4 {
     clear: both; }
   #restaurantDetails ul {
@@ -6144,7 +6144,7 @@ form #dayTime input {
   #restaurantDetails ul.address {
     float: left;
     clear: left;
-    margin: 0 5%; }
+    margin: 0 10px; }
   #restaurantDetails .controls {
     margin-bottom: 15px; }
     #restaurantDetails .controls button {
