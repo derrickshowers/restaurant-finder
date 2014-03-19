@@ -6124,10 +6124,6 @@ form #dayTime input {
   border: 1px solid #DDD;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
   padding: 25px; }
-  #restaurantDetails h3 {
-    float: left;
-    width: 110%;
-    margin: 10px; }
   #restaurantDetails h4 {
     clear: both; }
   #restaurantDetails ul {
@@ -6137,14 +6133,11 @@ form #dayTime input {
     float: left;
     border-radius: 4px;
     margin-bottom: 50px;
+    margin-right: 10px;
     box-shadow: 3px 3px 4px 1px #666; }
   #restaurantDetails form,
   #restaurantDetails p {
     padding: 25px; }
-  #restaurantDetails ul.address {
-    float: left;
-    clear: left;
-    margin: 0 10px; }
   #restaurantDetails .controls {
     margin-bottom: 15px; }
     #restaurantDetails .controls button {
@@ -6166,9 +6159,19 @@ form #dayTime input {
     margin-left: -8px;
     margin-right: 8px; } }
 
+@media screen and (max-width: 1200px) {
+  .nav > li > a {
+    padding: 10px 10px; } }
 @media screen and (max-width: 600px) {
-  #restaurantList .list-group {
+  header #addNew {
     top: 0;
+    position: relative; }
+
+  #restaurantList {
+    height: 125px; }
+
+  #restaurantList .list-group {
+    top: 50px;
     width: 93%;
     height: 42px;
     position: absolute;
@@ -6190,8 +6193,12 @@ form #dayTime input {
     margin-top: 72px;
     font-size: .75em; }
 
-  #restaurantDetails img {
-    position: inherit; }
+  #restaurantDetails {
+    border: none; }
+    #restaurantDetails img {
+      position: inherit; }
+    #restaurantDetails .darkBox {
+      padding: 5px 15px; }
 
   #getStarted span {
     display: none; } }
