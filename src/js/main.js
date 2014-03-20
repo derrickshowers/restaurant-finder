@@ -21,6 +21,6 @@ require.config({
 	}
 })
 
-require(['jquery', 'underscore', 'backbone', 'bootstrap', 'app'], function() {
+require(['jquery', 'underscore', 'backbone', 'bootstrap', 'app', 'helpers'], function() {
 	restaurantApp.app.start();
 });
