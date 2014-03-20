@@ -187,11 +187,14 @@ define(['template', 'model'], function(template, model) {
 		},
 
 		save: function(e) {
-
-			var id;
 			
 			// no form submit - just ruins everything :)
 			e.preventDefault();
+
+			// check input to make sure everything is valid
+			if (!dsHelpers.validateForm(this.el)) return;
+
+			var id;
 
 			// set the id, and set the model to a new instance if it's not an update
 			if (this.isNew) {
@@ -256,6 +259,9 @@ define(['template', 'model'], function(template, model) {
 			
 			// no form submit - just ruins everything :)
 			e.preventDefault();
+
+			// check input to make sure everything is valid
+			if (!dsHelpers.validateForm(this.el)) return;
 
 			// get the user's input and store it in the model
 			var day = $('#day').val()
