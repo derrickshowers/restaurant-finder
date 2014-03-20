@@ -165,7 +165,7 @@ define(['template', 'model'], function(template, model) {
 		},
 
 		initialize: function() {
-		
+			
 		},
 
 		render: function() {
@@ -191,8 +191,16 @@ define(['template', 'model'], function(template, model) {
 			// no form submit - just ruins everything :)
 			e.preventDefault();
 
-			// check input to make sure everything is valid
-			if (!dsHelpers.validateForm(this.el)) return;
+			// check input to make sure everything is valid. if it isn't, add an event
+			// listener that keeps checking. if it is, remove the listener.
+			if (!dsHelpers.validateForm(this.el)) {
+				var formEl = this.el;
+				this.$el.on('keypress', function() {
+					dsHelpers.validateForm(formEl)
+				});
+				return;
+			}
+			this.$el.unbind('keypress');
 
 			var id;
 
@@ -260,8 +268,16 @@ define(['template', 'model'], function(template, model) {
 			// no form submit - just ruins everything :)
 			e.preventDefault();
 
-			// check input to make sure everything is valid
-			if (!dsHelpers.validateForm(this.el)) return;
+			// check input to make sure everything is valid. if it isn't, add an event
+			// listener that keeps checking. if it is, remove the listener.
+			if (!dsHelpers.validateForm(this.el)) {
+				var formEl = this.el;
+				this.$el.on('keypress', function() {
+					dsHelpers.validateForm(formEl)
+				});
+				return;
+			}
+			this.$el.unbind('keypress');
 
 			// get the user's input and store it in the model
 			var day = $('#day').val()
