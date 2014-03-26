@@ -93,3 +93,26 @@ app.post('/api/restaurants', function(req, res) {
 		}
 	});
 });
+
+app.put('/api/restaurants', function(req, res) {
+	RestaurantModel.findById(req.body._id, function(err, restaurant) {
+		if (err) {
+			console.log('Error: ', err);
+		} else {
+			restaurant.name = req.body.name;
+			restaurant.city = req.body.city;
+			restaurant.address = req.body.address;
+			restaurant.main_image = req.body.main_image;
+			restaurant.urlName = req.body.urlName;
+
+			restaurant.save(function(err) {
+				if (err) {
+					console.log('Error: ', err);
+				} else {
+					console.log('Restaurant Updated');
+					return res.send(restaurant);
+				}
+			});
+		}
+	});
+});
