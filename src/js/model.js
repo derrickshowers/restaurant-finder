@@ -2,7 +2,7 @@ define(function() {
 
 	return {
 		Restaurant: Backbone.Model.extend({
-			url: 'api/restaurants',
+			url: 'api/save',
 			idAttribute: "_id",
 			defaults: {
 				name		: 'Unknown Name',

@@ -15,7 +15,8 @@ define(['collection', 'view'], function(collection, view) {
 		},
 
 		start: function() {
-			Backbone.history.start({ });
+
+			Backbone.history.start({});
 		},
 
 		welcome: function() {

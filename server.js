@@ -65,7 +65,7 @@ app.listen(port, function() {
 });
 
 // routes
-app.get('/api/restaurants', function(req, res) {
+app.get('/api', function(req, res) {
 	return RestaurantModel.find(function(err, restaurants) {
 		if (err) {
 			return console.log('Error: ', err);
@@ -75,7 +75,11 @@ app.get('/api/restaurants', function(req, res) {
 	});
 });
 
-app.post('/api/restaurants', function(req, res) {
+app.get('/api/:id', function(req, res) {
+	console.log(req.params.id);
+});
+
+app.post('/api/save', function(req, res) {
 	var restaurant = new RestaurantModel({
 		name: req.body.name,
 		city: req.body.city,
@@ -94,7 +98,7 @@ app.post('/api/restaurants', function(req, res) {
 	});
 });
 
-app.put('/api/restaurants', function(req, res) {
+app.put('/api/save', function(req, res) {
 	RestaurantModel.findById(req.body._id, function(err, restaurant) {
 		if (err) {
 			console.log('Error: ', err);
@@ -111,6 +115,23 @@ app.put('/api/restaurants', function(req, res) {
 				} else {
 					console.log('Restaurant Updated');
 					return res.send(restaurant);
+				}
+			});
+		}
+	});
+});
+
+app.delete('/api/delete/:id', function(req, res) {
+	RestaurantModel.findById(req.params.id, function(err, restaurant) {
+		if (err) {
+			console.log('Error: ', err);
+		} else {
+			restaurant.remove(function(err) {
+				if (err) {
+					console.log('Error: ', err);
+				} else {
+					console.log('Restaurant Removed');
+					return res.send('');
 				}
 			});
 		}

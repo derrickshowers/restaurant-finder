@@ -108,7 +108,7 @@ define(['template', 'model'], function(template, model) {
 			// pass it to the router. This is to allow the user to click the same restaurant and
 			// re-render it.
 			var href = e.target.href;
-			var id = href.match('#([a-zA-Z0-9-]+)')[1];
+			var id = href.match('#!/([a-zA-Z0-9-]+)')[1];
 			restaurantApp.app.showDetail(id);
 		}
 
