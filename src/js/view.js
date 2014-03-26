@@ -7,9 +7,8 @@ define(['template', 'model'], function(template, model) {
 		template: _.template(template.RestaurantListTemplate),
 
 		events: {
-			'change select'				: 'render'
-			// TODO: Make this work again
-			//'click a'					: 'refresh'
+			'change select'				: 'render',
+			'click a'					: 'refresh'
 		},
 
 		initialize: function() {
@@ -56,9 +55,8 @@ define(['template', 'model'], function(template, model) {
 		// takes an id, changes the boolean value of 
 		// model.selected, then re-renders the view
 		selectedState: function(id) {
-			var id = parseInt(id);
 			this.collection.forEach(function(restaurant) {
-				if (restaurant.id === id) {
+				if (restaurant.get('urlName') === id) {
 					restaurant.selected = true;
 				} else {
 					restaurant.selected = false;
@@ -110,7 +108,7 @@ define(['template', 'model'], function(template, model) {
 			// pass it to the router. This is to allow the user to click the same restaurant and
 			// re-render it.
 			var href = e.target.href;
-			var id = parseInt(href.match('#([0-9]).*')[1]);
+			var id = href.match('#([a-zA-Z0-9-]+)')[1];
 			restaurantApp.app.showDetail(id);
 		}
 
@@ -130,7 +128,7 @@ define(['template', 'model'], function(template, model) {
 		},
 
 		render: function(id) {
-			this.model = restaurantApp.app.restaurantList.get(id);
+			this.model = restaurantApp.app.restaurantList.findWhere({ urlName: id })
 			this.$el.html(this.template(this.model.toJSON()));
 			restaurantApp.app.restaurantListView.selectedState(id);
 			$('#restaurantDetails').html(this.el);
@@ -205,7 +203,8 @@ define(['template', 'model'], function(template, model) {
 			}
 
 			// figure out url friendly name
-			var urlName = $('#name').val().replace(/\ /g,'-');
+			var urlName = $('#name').val().replace(/\ /g,'-').replace(/[^\w\s]/gi,'').toLowerCase();
+
 
 			// get the user's input and store it in the model
 			this.model.save({
@@ -215,12 +214,12 @@ define(['template', 'model'], function(template, model) {
 				urlName: urlName,
 				signatures: [
 					{ 
-						'type' : 'Entrée',
-						'name' : $('#signatureEntree').val()
+						type : 'Entrée',
+						name : $('#signatureEntree').val()
 					},
 					{ 
-						'type' : 'Drink',
-						'name' : $('#signatureDrink').val()
+						type : 'Drink',
+						name : $('#signatureDrink').val()
 					}
 				]
 			});

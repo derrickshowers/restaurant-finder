@@ -39,12 +39,8 @@ var Restaurant = new mongoose.Schema({
 	city: String,
 	address: String,
 	main_image: String,
-	signatures: [
-		{
-			type: String,
-			name: String
-		}
-	],
+	urlName: String,
+	signatures: [],
 	specials: [
 		{
 			weekday: String,
@@ -81,22 +77,12 @@ app.get('/api/restaurants', function(req, res) {
 
 app.post('/api/restaurants', function(req, res) {
 	var restaurant = new RestaurantModel({
-		id: req.body.id,
 		name: req.body.name,
 		city: req.body.city,
 		address: req.body.address,
 		main_image: req.body.main_image,
 		urlName: req.body.urlName,
-		signatures: [
-			{ 
-				type: 'Entrée',
-				name: req.body.entree
-			},
-			{ 
-				type: 'Drink',
-				name: req.body.drink
-			},
-		]
+		signatures: req.body.signatures
 	});
 	restaurant.save(function(err) {
 		if (err) {
