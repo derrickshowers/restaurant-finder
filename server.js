@@ -101,8 +101,8 @@ app.post('/api/restaurants', function(req, res) {
 		if (err) {
 			return console.log('Error: ', err);
 		} else {
-			return console.log('Created');
+			console.log('Created');
+			return res.send(restaurant);
 		}
-		return res.send(restaurant);
 	});
 });

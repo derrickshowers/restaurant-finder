@@ -7,8 +7,9 @@ define(['template', 'model'], function(template, model) {
 		template: _.template(template.RestaurantListTemplate),
 
 		events: {
-			'change select'				: 'render',
-			'click a'					: 'refresh'
+			'change select'				: 'render'
+			// TODO: Make this work again
+			//'click a'					: 'refresh'
 		},
 
 		initialize: function() {
@@ -30,6 +31,7 @@ define(['template', 'model'], function(template, model) {
 			// if it's in the selected city.
 			$template.addClass('list-group');
 			this.collection.forEach(function(restaurant) {
+				console.log(restaurant.toJSON());
 				$item = $(this.template(restaurant.toJSON()));
 				if (restaurant.selected) {
 					$item.addClass('active');
@@ -169,13 +171,9 @@ define(['template', 'model'], function(template, model) {
 		},
 
 		render: function() {
-
-			// first, let's figure out if we're creating a new model, or updating
-			// an existing.
-			this.isNew = (this.model === undefined) ? true : false;
 			
 			// set $el with the correct template (based on if model is new or not)
-			if (this.isNew) {
+			if (this.model === undefined) {
 				this.$el.html(this.addNewtemplate());
 			} else {
 				this.$el.html(this.editTemplate(this.model.toJSON()));
@@ -202,19 +200,16 @@ define(['template', 'model'], function(template, model) {
 			}
 			this.$el.unbind('keypress');
 
-			var id;
-
 			// set the id, and set the model to a new instance if it's not an update
-			if (this.isNew) {
-				id = this.collection.length + 1;
+			if (this.model === undefined) {
 				this.model = new model.Restaurant();
-			} else {
-				id = this.model.id;
 			}
 
+			// declare this so we can access it in the success callback
+			var thisCollection = this.collection;
+
 			// get the user's input and store it in the model
-			this.model.set({
-				id: id,
+			this.model.save({
 				name: $('#name').val(),
 				address: $('#address').val(),
 				city: $('#city').val(),
@@ -229,9 +224,9 @@ define(['template', 'model'], function(template, model) {
 					}
 				]
 			});
-			
-			// if this is new, we'll need to add it to the collection
-			if (this.isNew) {
+
+			// TODO: this is being called too early
+			if (this.model.isNew()) {
 				this.collection.add(this.model);
 			}
 			

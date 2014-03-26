@@ -3,6 +3,7 @@ define(function() {
 	return {
 		Restaurant: Backbone.Model.extend({
 			url: 'api/restaurants',
+			idAttribute: "_id",
 			defaults: {
 				name		: 'Unknown Name',
 				city		: 'Unknown City',
