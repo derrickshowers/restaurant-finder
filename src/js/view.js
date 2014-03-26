@@ -31,7 +31,6 @@ define(['template', 'model'], function(template, model) {
 			// if it's in the selected city.
 			$template.addClass('list-group');
 			this.collection.forEach(function(restaurant) {
-				console.log(restaurant.toJSON());
 				$item = $(this.template(restaurant.toJSON()));
 				if (restaurant.selected) {
 					$item.addClass('active');
@@ -205,14 +204,15 @@ define(['template', 'model'], function(template, model) {
 				this.model = new model.Restaurant();
 			}
 
-			// declare this so we can access it in the success callback
-			var thisCollection = this.collection;
+			// figure out url friendly name
+			var urlName = $('#name').val().replace(/\ /g,'-');
 
 			// get the user's input and store it in the model
 			this.model.save({
 				name: $('#name').val(),
 				address: $('#address').val(),
 				city: $('#city').val(),
+				urlName: urlName,
 				signatures: [
 					{ 
 						'type' : 'Entrée',
@@ -225,7 +225,6 @@ define(['template', 'model'], function(template, model) {
 				]
 			});
 
-			// TODO: this is being called too early
 			if (this.model.isNew()) {
 				this.collection.add(this.model);
 			}

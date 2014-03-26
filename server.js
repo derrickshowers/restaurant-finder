@@ -86,6 +86,7 @@ app.post('/api/restaurants', function(req, res) {
 		city: req.body.city,
 		address: req.body.address,
 		main_image: req.body.main_image,
+		urlName: req.body.urlName,
 		signatures: [
 			{ 
 				type: 'Entrée',
