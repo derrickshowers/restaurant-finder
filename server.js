@@ -41,19 +41,13 @@ var Restaurant = new mongoose.Schema({
 	main_image: String,
 	urlName: String,
 	signatures: [],
-	specials: [
-		{
-			weekday: String,
-			details: [
-				{
-					title: String,
-					type: String,
-					time: String,
-					description: String
-				}
-			]
-		}
-	]
+	specials: [],
+	weekday: String,
+	details: [],
+	title: String,
+	type: String,
+	time: String,
+	description: String
 });
 
 // models
@@ -86,7 +80,8 @@ app.post('/api/save', function(req, res) {
 		address: req.body.address,
 		main_image: req.body.main_image,
 		urlName: req.body.urlName,
-		signatures: req.body.signatures
+		signatures: req.body.signatures,
+		specials: req.body.specials
 	});
 	restaurant.save(function(err) {
 		if (err) {
@@ -108,6 +103,7 @@ app.put('/api/save', function(req, res) {
 			restaurant.address = req.body.address;
 			restaurant.main_image = req.body.main_image;
 			restaurant.urlName = req.body.urlName;
+			restaurant.specials = req.body.specials;
 
 			restaurant.save(function(err) {
 				if (err) {

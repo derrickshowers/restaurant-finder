@@ -205,7 +205,6 @@ define(['template', 'model'], function(template, model) {
 			// figure out url friendly name
 			var urlName = $('#name').val().replace(/\ /g,'-').replace(/[^\w\s]/gi,'').toLowerCase();
 
-
 			// get the user's input and store it in the model
 			this.model.save({
 				name: $('#name').val(),
@@ -287,8 +286,7 @@ define(['template', 'model'], function(template, model) {
 					specials[i].details.push(specialsObject);
 				}
 			}
-
-			this.model.set(specials);
+			this.model.save(specials);
 			
 			// we're done - let em know
 			$('#restaurantDetails').html('<p>Voilà! Your special has been added.');
